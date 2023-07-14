@@ -1,5 +1,5 @@
 var finances = [
-  ['Jan-2010', 867884],
+  ['Jan-2010', 867884],//array index =0-86 nested array = 0,1//
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
   ['Apr-2010', -69417],
@@ -86,3 +86,61 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+console.log("Financial Analysis");
+
+//length function to find how long array index is//
+
+console.log("Total Months:", finances.length);
+
+// nested for loop to run through profit/losses numbers in nested array//
+
+for (let i = 0; i < finances.length; i++) {
+   for (let j = 1; j < finances[i].length; j++) {
+     console.log(finances[i][j])
+    
+   }
+};
+
+// split the negative numbers from postive numbers in array//
+
+// if (finances[i][j]<0)
+    //  neg_count++;
+    //  else
+    //  pos_count++;
+
+    //  console.log(pos_count);
+
+//reduce funtion to find value of finances[i][j]//
+
+
+
+
+
+
+//Copy and paste of challenge criteria//
+
+// The total number of months included in the dataset.//
+
+//The net total amount of Profit/Losses over the entire period.//
+
+//The average of the changes in Profit/Losses over the entire period.//
+
+//You will need to track what the total change in profits is from month to month and then find the average.
+
+//(Total/(Number of months - 1))
+
+//The greatest increase in profits (date and amount) over the entire period.
+
+//The greatest decrease in losses (date and amount) over the entire period. //
+
+
+// How to approach challenge - pseudocode//
+
+// Find method of counting total number of lines/months - .length? - seperate vars for strings and numbers?
+
+//Code to find net profit - creat for loop to go through the index with value of 1 on nested arrays?//
+
+// Last two points - iteration sum to work out greatest loss and profit?//
+
