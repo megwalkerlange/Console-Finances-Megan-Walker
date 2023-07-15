@@ -104,7 +104,9 @@ var losses = 0
 var runningAvgTot = 0
 var changeAvg = 0
 var largestIncease = 0
+var LargestDate = 0
 var largestDecrease = 0
+var dateDecrease = 0
 
 
 for (let i = 0; i < finances.length; i++) {
@@ -119,11 +121,28 @@ for (let i = 0; i < finances.length; i++) {
         {
           max = finances[i][j]
         }
-        if (i+1<finances.length)
-         {runningAvgTot = runningAvgTot + (finances[i+1][j] - finances[i][j])}
+        if (i!=0)
+         {
+          runningAvgTot = runningAvgTot + (finances[i][j] - finances[i-1][j])
+          //finances[i][j] - finances[i-1][j] is essentially a variable called "Difference" which is the value of this month minus the value of the month before.
+          if ((finances[i][j] - finances[i-1][j])>largestIncease)
+          {//This checks to see if the difference between the month and the month before is the largest so far, if it is, save that difference as well as the date it occured on
+            largestIncease = finances[i][j] - finances[i-1][j] //set "largest Increase" to the new largest increase
+            LargestDate = finances[i][0] //at the same time, save the date using the current i value (as date is in coloumn 0)
+           }
+          if ((finances[i][j] - finances[i-1][j])<largestDecrease){
+            largestDecrease = finances[i][j] - finances[i-1][j] 
+            dateDecrease = finances[i][0]
+          }
+
+
+
           
+
+
          //console.log(runningAvgTot);
         }
+      }
 
     }
 
@@ -136,7 +155,8 @@ for (let i = 0; i < finances.length; i++) {
   console.log("The net revenue is: $ " + profit)
   console.log("The net expenditure is: $ " + losses)
   console.log("The net profit is: $ " + net)
-  
+  console.log("This is the largest increase in profit: $" + largestIncease + " (Occured: " + LargestDate +")")
+  console.log("This is the largest increase in profit: $" + largestDecrease + " (Occured: " + dateDecrease +")")
   
  
 
