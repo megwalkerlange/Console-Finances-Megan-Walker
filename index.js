@@ -101,22 +101,48 @@ console.log("Total Months:", finances.length);
 var max = 0
 var profit = 0
 var losses = 0
+var runningAvgTot = 0
+var changeAvg = 0
+var largestIncease = 0
+var largestDecrease = 0
+
 
 for (let i = 0; i < finances.length; i++) {
-   for (let j = 1; j < finances[i].length; j++) {
+   for (let j = 1; j < finances[i].length; j++)  
+      {
     //  console.log(finances[i][j]);
         if (finances[i][j]>0)
         {profit = profit+finances[i][j]}
         else
         {losses = losses+finances[i][j]}
-       }
-      
-  }
+        if (finances[i][j]>max)
+        {
+          max = finances[i][j]
+        }
+        if (i+1<finances.length)
+         {runningAvgTot = runningAvgTot + (finances[i+1][j] - finances[i][j])}
+          
+         //console.log(runningAvgTot);
+        }
+
+    }
+
+    changeAvg = runningAvgTot/(finances.length-1)
+
+      console.log("This is the average change of profits per month: $" + changeAvg)
 
   var net = profit + losses;
 
-  console.log("The net profit is: $ " + net);
+  console.log("The net revenue is: $ " + profit)
+  console.log("The net expenditure is: $ " + losses)
+  console.log("The net profit is: $ " + net)
+  
+  
+ 
+
+
    
+  
  
 
   
@@ -145,28 +171,6 @@ for (let i = 0; i < finances.length; i++) {
 
 
 
-//Copy and paste of challenge criteria//
-
-// The total number of months included in the dataset.//
-
-//The net total amount of Profit/Losses over the entire period.//
-
-//The average of the changes in Profit/Losses over the entire period.//
-
-//You will need to track what the total change in profits is from month to month and then find the average.
-
-//(Total/(Number of months - 1))
-
-//The greatest increase in profits (date and amount) over the entire period.
-
-//The greatest decrease in losses (date and amount) over the entire period. //
-
-
-// How to approach challenge - pseudocode//
-
-// Find method of counting total number of lines/months - .length? - seperate vars for strings and numbers?
-
-//Code to find net profit - create for loop to go through the index with value of 1 on nested arrays?//
 
 
 
