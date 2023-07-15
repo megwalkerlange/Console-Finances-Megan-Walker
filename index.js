@@ -1,5 +1,5 @@
 var finances = [
-  ['Jan-2010', 867884],//array index =0-86 nested array = 0,1//
+  ['Jan-2010', 867884],//array index =0-86 nested array = 0-1//
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
   ['Apr-2010', -69417],
@@ -95,13 +95,40 @@ console.log("Financial Analysis");
 console.log("Total Months:", finances.length);
 
 // nested for loop to run through profit/losses numbers in nested array//
+//create if else to find total of positive and negative values//
+//take total of negative values and subtract from positive//
+
+var max = 0
+var profit = 0
+var losses = 0
 
 for (let i = 0; i < finances.length; i++) {
    for (let j = 1; j < finances[i].length; j++) {
-     console.log(finances[i][j])
+    //  console.log(finances[i][j]);
+        if (finances[i][j]>0)
+        {profit = profit+finances[i][j]}
+        else
+        {losses = losses+finances[i][j]}
+       }
+      
+  }
+
+  var net = profit + losses;
+
+  console.log("The net profit is: $ " + net);
+   
+ 
+
+  
+
+  
+  
+  
+  
     
-   }
-};
+   
+
+
 
 // split the negative numbers from postive numbers in array//
 
@@ -109,8 +136,7 @@ for (let i = 0; i < finances.length; i++) {
     //  neg_count++;
     //  else
     //  pos_count++;
-
-    //  console.log(pos_count);
+ //  console.log(pos_count);
 
 //reduce funtion to find value of finances[i][j]//
 
@@ -140,7 +166,7 @@ for (let i = 0; i < finances.length; i++) {
 
 // Find method of counting total number of lines/months - .length? - seperate vars for strings and numbers?
 
-//Code to find net profit - creat for loop to go through the index with value of 1 on nested arrays?//
+//Code to find net profit - create for loop to go through the index with value of 1 on nested arrays?//
 
-// Last two points - iteration sum to work out greatest loss and profit?//
+
 
